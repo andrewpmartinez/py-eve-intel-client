@@ -28,6 +28,7 @@ var/
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
+MANIFEST
 
 # Installer logs
 pip-log.txt
@@ -55,3 +56,6 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# PyCharm
+.idea/
