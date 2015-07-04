@@ -1,9 +1,10 @@
 import os
+import uuid
 from setuptools import setup, find_packages
 from pip.req import parse_requirements
 
 # parse_requirements() returns generator of pip.req.InstallRequirement objects
-install_reqs = parse_requirements(os.path.join(os.path.dirname(__file__), 'requirements.txt'))
+install_reqs = parse_requirements(os.path.join(os.path.dirname(__file__), 'requirements.txt'), session=uuid.uuid1())
 reqs = [str(ir.req) for ir in install_reqs]
 
 setup(
@@ -18,7 +19,7 @@ setup(
     license="MIT",
     keywords="EVE chat monitor intel client",
     url='https://github.com/andrewpmartinez/py-eve-intel-client',
-    download_url='https://github.com/andrewpmartinez/py-eve-chat-client/tarball/0.1',
+    download_url='https://github.com/andrewpmartinez/py-eve-intel-client/tarball/0.1',
     packages=find_packages(),
     long_description="See github page for full details.",
     classifiers=[
