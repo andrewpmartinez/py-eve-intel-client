@@ -1,1 +1,1 @@
-
+python %~dp0\eve-intel-client.py %*

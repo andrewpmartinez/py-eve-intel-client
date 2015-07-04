@@ -1,1 +1,2 @@
-py-eve-chat-mon == 0.4
+py-eve-chat-mon==0.4
+requests==2.7.0
