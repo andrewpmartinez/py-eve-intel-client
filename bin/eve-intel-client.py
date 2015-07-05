@@ -22,7 +22,7 @@ parser.add_argument("--post-rate", metavar="MS", type=int, required=False, dest=
                     help="""The rate at which chat logs are polled and chat events are
 POSTed.
 
-Value is in milli-seconds and defaults to 1000ms (1 second).
+Value is in seconds and defaults to 1 second.
 Lower numbers are more responsive but harder on disk IO and
 on the target server.
 

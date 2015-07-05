@@ -1,14 +1,14 @@
 {
-    "logDir": "C:\\Users\\YOUR_NAME\\Documents\\Eve\\logs\\ChatLogs",
-    "postRate": 1000,
+    "logDir": "C:\\Users\\SOME_USER\\Documents\\Eve\\logs\\ChatLogs",
+    "postRate": 5,
     "chats": {
         "Alliance": {
-            "url": "https://localhost/alliance",
-            "token": "a6928b9c624683fbbb40266c1f19382b"
+            "url": "http://localhost:6543/intel",
+            "token": "SOME_SECRET_TOKEN"
         },
         "Corp": {
-            "url": "https://example.com/corp",
-            "token": "1de7fdf5119097846de6b2d210f911ea"
+            "url": "http://localhost:6543/intel",
+            "token": "SOME_SECRET_TOKEN"
         }
     }
 

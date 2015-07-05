@@ -25,15 +25,14 @@ class Client(object):
     def stop(self):
         self.monitor.stop()
 
-    def _handler(self, chat_name, event):
+    def _handler(self, chat_name, events):
+        print(chat_name)
         if chat_name in self.chat_configs:
-            config = self.chat_configs[chat_name]
-            print("Posting to url: %s".format(config.url))
-            print("Token: %s".format(config.token))
-            print("Body: %s".format(json.dumps(event)))
+            for event in events:
+                config = self.chat_configs[chat_name]
+                event['timestamp'] = str(event['timestamp'])
 
-            requests.post(config.url, json.dumps(event), headers={Client.TOKEN_HEADER: config.token}, timeout=5)
-
+            requests.post(config['url'], json.dumps(events), headers={Client.TOKEN_HEADER: config['token']}, timeout=5)
 
     def add_chat(self, chat_config):
         if not chat_config:
