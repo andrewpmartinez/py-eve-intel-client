@@ -2,10 +2,11 @@ import json
 import requests
 import threading
 from py_eve_chat_mon.monitor import Monitor
-from .exception import InvalidChatConfig
 
-def post(url, json, token, timeout):
-    requests.post(url, json, headers={Client.TOKEN_HEADER: token}, timeout=timeout)
+
+def post(url, data, token, timeout):
+    requests.post(url, data, headers={Client.TOKEN_HEADER: token}, timeout=timeout)
+
 
 class Client(object):
     TOKEN_HEADER = "EVE-CHAT-MON"
@@ -35,14 +36,10 @@ class Client(object):
                 config = self.chat_configs[chat_name]
                 event['timestamp'] = str(event['timestamp'])
 
-                thread = threading.Thread(target=post, args=(config['url'], json.dumps(events), config['token'], 5), kwargs={})
+                thread = threading.Thread(target=post, args=(config['url'], json.dumps(events), config['token'], 5),
+                                          kwargs={})
                 thread.start()
 
-    def add_chat(self, chat_config):
-        if not chat_config:
-            raise InvalidChatConfig()
-
-        self.chat[chat_config.chat_name] = chat_config
 
 class Chat(object):
     def __init__(self, chat_name, post_url, token):
